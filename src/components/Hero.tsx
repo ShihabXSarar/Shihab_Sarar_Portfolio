@@ -1,13 +1,20 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, FileText } from "lucide-react";
+import { Github, Linkedin, Mail, FileText, Eye } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
+import { useState } from "react";
+import ResumeModal from "./ResumeModal";
 
 const Hero = () => {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
   return (
     <section id="about" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4">
+      {/* Resume Modal */}
+      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
+
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-accent/20 animate-pulse" style={{ animationDuration: '8s' }} />
-      
+
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left content */}
@@ -18,7 +25,7 @@ const Hero = () => {
                 SHIHAB <span className="text-gradient">SARAR</span>
               </h1>
             </div>
-            
+
             <div className="space-y-4">
               <p className="text-xl text-muted-foreground">
                 Competitive Programmer | ML Enthusiast | Software Developer
@@ -35,22 +42,20 @@ const Hero = () => {
                   Contact Me
                 </a>
               </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href="/cv.pdf" download="Shihab_Sarar_CV.pdf">
-                  <FileText className="mr-2 h-5 w-5" />
-                  View Resume
-                </a>
+              <Button size="lg" variant="outline" onClick={() => setIsResumeOpen(true)}>
+                <Eye className="mr-2 h-5 w-5" />
+                View Resume
               </Button>
             </div>
 
             {/* Social links */}
             <div className="flex gap-4 pt-4">
-              <a href="https://github.com/ShihabXSarar" target="_blank" rel="noopener noreferrer" 
-                 className="p-3 rounded-lg bg-card hover:bg-primary transition-smooth hover:glow-primary">
+              <a href="https://github.com/ShihabXSarar" target="_blank" rel="noopener noreferrer"
+                className="p-3 rounded-lg bg-card hover:bg-primary transition-smooth hover:glow-primary">
                 <Github className="h-5 w-5" />
               </a>
               <a href="https://www.linkedin.com/in/shihab312417/" target="_blank" rel="noopener noreferrer"
-                 className="p-3 rounded-lg bg-card hover:bg-primary transition-smooth hover:glow-primary">
+                className="p-3 rounded-lg bg-card hover:bg-primary transition-smooth hover:glow-primary">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
@@ -61,9 +66,9 @@ const Hero = () => {
             <div className="relative">
               <div className="w-80 h-80 rounded-full bg-gradient-to-br from-primary to-accent p-1 glow-primary">
                 <div className="w-full h-full rounded-full bg-card flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={profileImage} 
-                    alt="Shihab Sarar - Competitive Programmer and ML Enthusiast" 
+                  <img
+                    src={profileImage}
+                    alt="Shihab Sarar - Competitive Programmer and ML Enthusiast"
                     className="w-full h-full object-cover"
                   />
                 </div>
