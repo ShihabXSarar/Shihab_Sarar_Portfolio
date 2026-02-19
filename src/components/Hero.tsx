@@ -15,7 +15,7 @@ const Hero = () => {
       <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[hsl(196,100%,46%,0.04)] rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-[hsl(262,83%,58%,0.03)] rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container mx-auto max-w-6xl relative z-10 pt-20">
+      <div className="container mx-auto max-w-6xl relative z-10 pt-12">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left content */}
           <div className="space-y-6 animate-fade-in order-2 md:order-1">
@@ -98,8 +98,8 @@ const Hero = () => {
           {[
             { label: "Codeforces:", value: "1341 (Pupil)" },
             { label: "GPA:", value: "3.54/4.0" },
-            { label: "Projects:", value: "10+" },
-            { label: "LeetCode:", value: "100+" },
+            { label: "Projects:", value: "20+" },
+            { label: "Awards:", value: "5+" },
           ].map((stat, i) => (
             <div key={i} className="px-5 py-2.5 rounded-lg border border-[hsl(196,100%,46%,0.25)] bg-[hsl(196,100%,46%,0.05)] flex items-center gap-2.5 transition-all hover:border-[hsl(196,100%,46%,0.5)] group">
               <span className="text-[hsl(196,100%,46%)] font-bold text-xs uppercase tracking-widest">{stat.label}</span>
