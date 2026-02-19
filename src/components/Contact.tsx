@@ -78,8 +78,8 @@ const Contact = () => {
           <p className="text-muted-foreground text-lg">Let's collaborate on your next project</p>
         </div>
 
-        <div className="tech-card p-8 sm:p-12 rounded-3xl animate-fade-in">
-          <div className="grid lg:grid-cols-2 gap-16">
+        <div className="tech-card p-6 sm:p-12 rounded-3xl animate-fade-in">
+          <div className="grid lg:grid-cols-2 gap-12 sm:gap-16">
             {/* Contact Form */}
             <div className="space-y-8">
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -134,45 +134,45 @@ const Contact = () => {
 
             {/* Contact Info */}
             <div className="flex flex-col justify-between">
-              <div className="space-y-10">
-                <div className="space-y-6">
-                  <div className="flex items-start gap-5 group">
-                    <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-smooth">
-                      <Mail className="h-6 w-6 text-primary" />
+              <div className="space-y-8 sm:space-y-10">
+                <div className="space-y-5 sm:space-y-6">
+                  <div className="flex items-start gap-4 sm:gap-5 group">
+                    <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-smooth shrink-0">
+                      <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-foreground/30 uppercase tracking-widest mb-1">Email</p>
-                      <p className="text-lg font-bold text-foreground/90">shihabsarar312417@gmail.com</p>
+                      <p className="text-[10px] sm:text-xs font-bold text-foreground/30 uppercase tracking-widest mb-1">Email</p>
+                      <p className="text-sm sm:text-lg font-bold text-foreground/90 break-all">shihabsarar312417@gmail.com</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-5 group">
-                    <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-smooth">
-                      <Linkedin className="h-6 w-6 text-primary" />
+                  <div className="flex items-start gap-4 sm:gap-5 group">
+                    <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-smooth shrink-0">
+                      <Linkedin className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-foreground/30 uppercase tracking-widest mb-1">LinkedIn</p>
-                      <p className="text-lg font-bold text-foreground/90">linkedin.com/in/shihab312417</p>
+                      <p className="text-[10px] sm:text-xs font-bold text-foreground/30 uppercase tracking-widest mb-1">LinkedIn</p>
+                      <p className="text-sm sm:text-lg font-bold text-foreground/90 break-all">linkedin.com/in/shihab312417</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-5 group">
-                    <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-smooth">
-                      <Github className="h-6 w-6 text-primary" />
+                  <div className="flex items-start gap-4 sm:gap-5 group">
+                    <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-smooth shrink-0">
+                      <Github className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-foreground/30 uppercase tracking-widest mb-1">GitHub</p>
-                      <p className="text-lg font-bold text-foreground/90">github.com/ShihabXSarar</p>
+                      <p className="text-[10px] sm:text-xs font-bold text-foreground/30 uppercase tracking-widest mb-1">GitHub</p>
+                      <p className="text-sm sm:text-lg font-bold text-foreground/90 break-all">github.com/ShihabXSarar</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-5 group">
-                    <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-smooth">
-                      <MapPin className="h-6 w-6 text-primary" />
+                  <div className="flex items-start gap-4 sm:gap-5 group">
+                    <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-smooth shrink-0">
+                      <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-foreground/30 uppercase tracking-widest mb-1">Location</p>
-                      <p className="text-lg font-bold text-foreground/90">Dhaka, Bangladesh</p>
+                      <p className="text-[10px] sm:text-xs font-bold text-foreground/30 uppercase tracking-widest mb-1">Location</p>
+                      <p className="text-sm sm:text-lg font-bold text-foreground/90">Dhaka, Bangladesh</p>
                     </div>
                   </div>
                 </div>
