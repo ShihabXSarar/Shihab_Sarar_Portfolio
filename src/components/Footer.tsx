@@ -1,15 +1,10 @@
 const Footer = () => {
   return (
-    <footer className="py-8 px-4 border-t border-border">
-      <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground text-sm">
-            © 2025 Shihab Sarar. All rights reserved.
-          </p>
-          <p className="text-muted-foreground text-sm">
-            Built with React, TypeScript & Tailwind CSS
-          </p>
-        </div>
+    <footer className="py-12 px-4 border-t border-border/10 bg-[hsl(228,50%,4%)]">
+      <div className="container mx-auto max-w-6xl text-center">
+        <p className="text-foreground/30 text-xs font-bold uppercase tracking-[0.3em]">
+          © 2024 Shihab Sarar. All Rights Reserved.
+        </p>
       </div>
     </footer>
   );

@@ -1,58 +1,59 @@
-import { Code, Brain, BookOpen } from "lucide-react";
+import { Music, BookOpen, Coffee, Plane, Gamepad2, Laptop } from "lucide-react";
 
 const Interests = () => {
   const interests = [
     {
-      icon: Code,
-      title: "Competitive Programming",
-      description: "I love solving algorithmic problems on platforms like Codeforces and Leetcode, constantly challenging myself with complex problems.",
-      gradient: "from-blue-500 to-cyan-500",
+      icon: Laptop,
+      title: "Open Source",
+      description: "Contributing to software projects",
     },
     {
-      icon: Brain,
-      title: "Machine Learning",
-      description: "Exploring AI and ML techniques to solve real-world problems, with a focus on innovative applications and emerging technologies.",
-      gradient: "from-purple-500 to-pink-500",
+      icon: Gamepad2,
+      title: "Gaming",
+      description: "Competitive gaming and strategy",
+    },
+    {
+      icon: Coffee,
+      title: "Productivity",
+      description: "Exploring tech and workflows",
+    },
+    {
+      icon: Music,
+      title: "Music",
+      description: "Lo-fi and coding playlists",
     },
     {
       icon: BookOpen,
-      title: "Reading Books",
-      description: "I enjoy reading books, especially those related to technology, crime thrillers, and detective novels that challenge the mind.",
-      gradient: "from-orange-500 to-red-500",
+      title: "Reading books",
+      description: "Exploring new worlds and knowledge",
+    },
+    {
+      icon: Plane,
+      title: "Travel",
+      description: "Exploring new cultures",
     },
   ];
 
   return (
-    <section id="interests" className="py-20 px-4 bg-card/30">
-      <div className="container mx-auto max-w-6xl">
+    <section id="interests" className="py-20 px-4 relative overflow-hidden">
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            My <span className="text-gradient">Interests</span>
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            What drives and inspires me
-          </p>
+          <h2 className="section-heading">My <span className="text-gradient">Interests</span></h2>
+          <p className="text-muted-foreground text-lg">Beyond the code</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {interests.map((interest, index) => (
             <div
               key={index}
-              className="group relative p-6 rounded-xl bg-card border border-border hover:border-primary transition-smooth overflow-hidden animate-fade-in"
+              className="tech-card group p-6 rounded-2xl animate-fade-in flex flex-col items-center text-center hover:border-primary/40 transition-all border-border/10"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Gradient overlay on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${interest.gradient} opacity-0 group-hover:opacity-10 transition-smooth`} />
-              
-              <div className="relative z-10">
-                <div className="mb-4 p-3 rounded-lg bg-primary/10 w-fit group-hover:bg-primary/20 transition-smooth">
-                  <interest.icon className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold mb-3">{interest.title}</h3>
-                <p className="text-foreground/70 leading-relaxed">
-                  {interest.description}
-                </p>
+              <div className="mb-4 p-3 rounded-full bg-primary/5 group-hover:bg-primary/10 transition-smooth">
+                <interest.icon className="h-6 w-6 text-primary" />
               </div>
+              <h3 className="text-sm font-bold mb-1">{interest.title}</h3>
+              <p className="text-[10px] text-muted-foreground font-medium leading-tight">{interest.description}</p>
             </div>
           ))}
         </div>

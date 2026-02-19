@@ -1,48 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 222 47% 11%;
+    /* Deep dark navy background matching the Stitch design */
+    --background: 228 60% 6%;
     --foreground: 210 40% 98%;
 
-    --card: 224 33% 15%;
+    /* Card: slightly lighter navy with visible separation */
+    --card: 228 45% 10%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 224 33% 12%;
+    --popover: 228 45% 8%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 11%;
+    /* Bright neon cyan - the core accent from the design */
+    --primary: 196 100% 46%;
+    --primary-foreground: 228 60% 6%;
 
-    --secondary: 224 33% 20%;
+    --secondary: 228 35% 15%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 224 33% 18%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 228 35% 13%;
+    --muted-foreground: 215 20% 55%;
 
-    --accent: 271 81% 56%;
+    /* Purple/violet secondary accent */
+    --accent: 262 83% 58%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 224 33% 20%;
-    --input: 224 33% 18%;
-    --ring: 217 91% 60%;
+    /* Borders visible with cyan tint */
+    --border: 228 30% 18%;
+    --input: 228 35% 13%;
+    --ring: 196 100% 46%;
 
     --radius: 0.75rem;
 
-    /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(271 81% 56%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(224 33% 15%) 0%, hsl(224 33% 20%) 100%);
-    --glow-primary: 0 0 40px hsl(217 91% 60% / 0.4);
-    --glow-accent: 0 0 40px hsl(271 81% 56% / 0.3);
+    /* Gradients matching the neon cyan → purple */
+    --gradient-primary: linear-gradient(135deg, hsl(196 100% 46%) 0%, hsl(262 83% 58%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(228 45% 10%) 0%, hsl(228 35% 15%) 100%);
+    --glow-primary: 0 0 25px hsl(196 100% 46% / 0.4), 0 0 50px hsl(196 100% 46% / 0.15);
+    --glow-accent: 0 0 30px hsl(262 83% 58% / 0.3);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
@@ -54,15 +57,20 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -70,12 +78,12 @@ All colors MUST be HSL.
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary));
-    border-radius: 5px;
+    background: hsl(var(--primary) / 0.5);
+    border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--accent));
+    background: hsl(var(--primary) / 0.8);
   }
 }
 
@@ -97,5 +105,94 @@ All colors MUST be HSL.
 
   .transition-smooth {
     transition: var(--transition-smooth);
+  }
+
+  /* Tech border with visible cyan glow edge - matching the design's card borders */
+  .tech-border {
+    border: 1px solid hsl(196 100% 46% / 0.25);
+    position: relative;
+  }
+
+  .tech-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, hsl(196 100% 46% / 0.15), transparent 40%, transparent 60%, hsl(262 83% 58% / 0.15));
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* Cards matching the design: dark navy bg with visible glowing cyan borders */
+  .tech-card {
+    background: linear-gradient(160deg,
+        hsl(228 45% 11%) 0%,
+        hsl(228 50% 8%) 100%);
+    border: 1px solid hsl(196 100% 46% / 0.18);
+    transition: var(--transition-smooth);
+    box-shadow: 0 0 0 0 transparent;
+  }
+
+  .tech-card:hover {
+    border-color: hsl(196 100% 46% / 0.45);
+    box-shadow:
+      0 0 15px hsl(196 100% 46% / 0.08),
+      0 0 30px hsl(196 100% 46% / 0.04),
+      inset 0 1px 0 hsl(196 100% 46% / 0.08);
+  }
+
+  /* Circuit board dot pattern - subtle tech background like the design */
+  .circuit-bg {
+    background-image:
+      radial-gradient(circle at 25% 25%, hsl(196 100% 46% / 0.04) 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, hsl(262 83% 58% / 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .section-heading {
+    @apply text-4xl md:text-5xl font-bold mb-4;
+  }
+
+  /* Skill tags matching the design: bordered pills with cyan text */
+  .skill-tag {
+    @apply px-3 py-1.5 rounded-md text-sm font-medium border transition-smooth;
+    background: hsl(196 100% 46% / 0.06);
+    border-color: hsl(196 100% 46% / 0.25);
+    color: hsl(196 100% 46%);
+  }
+
+  .skill-tag:hover {
+    background: hsl(196 100% 46% / 0.14);
+    border-color: hsl(196 100% 46% / 0.5);
+  }
+
+  /* Stat badges matching the design: outlined pills with data */
+  .stat-badge {
+    @apply px-4 py-2 rounded-lg text-sm font-semibold border;
+    background: hsl(196 100% 46% / 0.04);
+    border-color: hsl(196 100% 46% / 0.3);
+  }
+
+  /* Profile image glow matching the design's neon-style image frame */
+  .profile-glow {
+    box-shadow:
+      0 0 30px hsl(196 100% 46% / 0.35),
+      0 0 60px hsl(196 100% 46% / 0.15),
+      0 0 100px hsl(262 83% 58% / 0.08);
+  }
+
+  /* Mobile touch targets */
+  @media (pointer: coarse) {
+    .touch-target {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+}
+
+/* Mobile viewport fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
   }
 }

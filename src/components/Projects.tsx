@@ -1,39 +1,50 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import shipmentImg from "@/assets/projects/shipment.png";
+import falconImg from "@/assets/projects/falcon.png";
+import movieImg from "@/assets/projects/movie.png";
+import libraryImg from "@/assets/projects/library.png";
 
 const Projects = () => {
   const projects = [
     {
       title: "Real Time Shipment Tracking Project",
-      description: "Real-time shipment tracking solution supporting USPS and FedEx using Playwright for browser automation and BeautifulSoup for parsing. Features automated tracking number entry with human-like behavior, detailed status extraction, and structured JSON output without paid APIs.",
-      tech: ["Python", "Playwright", "BeautifulSoup", "Automation", "Web Scraping"],
+      description: "Real-time shipment tracking solution supporting USPS and FedEx using Playwright for browser automation and BeautifulSoup for parsing.",
+      tech: ["Python", "Playwright", "Web Scraping"],
       github: "https://github.com/ShihabXSarar/Real_Time_Shipment_Tracking_Project",
+      image: shipmentImg,
     },
     {
-      title: "AI-Based Threat Detection for Border Surveillance (Falcon AI)",
-      description: "Drone-based autonomous surveillance system using onboard AI for real-time threat detection and classification. Features directional context analysis, edge computing with NVIDIA Jetson, and instant verified alerts via Twilio API for border security operations.",
-      tech: ["Python", "Computer Vision", "Deep Learning", "NVIDIA Jetson", "Twilio API"],
+      title: "AI-Based Threat Detection (Falcon AI)",
+      description: "Drone-based autonomous surveillance system using onboard AI for real-time threat detection and classification.",
+      tech: ["Python", "Computer Vision", "Deep Learning"],
       github: "https://github.com/ShihabXSarar/AI-Based-Threat-Detection-for-Border-Surveillance",
+      image: falconImg,
     },
     {
       title: "Movie Recommendation System",
-      description: "Dynamic recommendation system using collaborative filtering and TMDB API integration. Provides personalized movie suggestions based on user preferences and behavior patterns. Features real-time movie data, user ratings, genre support, and an intuitive interface for discovering trending content.",
-      tech: ["Python", "Machine Learning", "TMDB API", "HTML", "CSS", "JavaScript"],
+      description: "Dynamic recommendation system using collaborative filtering and TMDB API integration for personalized movie suggestions.",
+      tech: ["Python", "Machine Learning", "TMDB API"],
       github: "https://github.com/ShihabXSarar/Movie-Recommendation-System-using-Collaborative-filtering",
+      image: movieImg,
     },
     {
       title: "Library Management System",
-      description: "Comprehensive library management system with book tracking, membership management, lending functions, and student photo management capabilities. Built using C# framework with SQL database integration and Windows Forms interface.",
-      tech: ["C#", "SQL", ".NET", "Windows Forms"],
+      description: "Comprehensive library management system with book tracking, membership management, and student photo management.",
+      tech: ["C#", "SQL", ".NET"],
       github: "https://github.com/ShihabXSarar/Library-System-Managment-with-photo-adding-of-students",
+      image: libraryImg,
     },
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 bg-card/30">
-      <div className="container mx-auto max-w-6xl">
+    <section id="projects" className="py-20 px-4 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-card/20 to-transparent pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-64 h-64 bg-primary/3 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="section-heading">
             Featured <span className="text-gradient">Projects</span>
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -41,46 +52,53 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group p-6 rounded-xl bg-card border border-border hover:border-primary transition-smooth hover:glow-primary animate-fade-in"
+              className="tech-card group rounded-xl overflow-hidden flex flex-col animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="mb-4">
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-gradient transition-smooth">
-                  {project.title}
-                </h3>
-                <p className="text-foreground/70 leading-relaxed mb-4">
-                  {project.description}
-                </p>
+              <div className="aspect-video w-full relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-smooth group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-smooth" />
               </div>
 
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((tech, techIndex) => (
-                  <span
-                    key={techIndex}
-                    className="px-3 py-1 rounded-lg bg-primary/10 text-xs font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+              <div className="p-5 flex-1 flex flex-col">
+                <div className="flex-1 mb-4">
+                  <h3 className="text-sm font-bold mb-2 group-hover:text-primary transition-smooth leading-tight h-10 line-clamp-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-foreground/60 text-[11px] leading-relaxed line-clamp-3">
+                    {project.description}
+                  </p>
+                </div>
 
-              <div className="flex gap-3 pt-4 border-t border-border">
-                {project.github && (
-                  <Button variant="outline" size="sm" asChild>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" />
-                      Code
-                    </a>
+                <div className="flex flex-wrap gap-1 mb-4">
+                  {project.tech.map((tech, techIndex) => (
+                    <span key={techIndex} className="skill-tag text-[9px] px-1.5 py-0.5">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-2 pt-3 border-t border-border/30">
+                  {project.github && (
+                    <Button variant="outline" size="sm" asChild className="flex-1 border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/50 text-[10px] h-8 rounded-lg">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-1 h-3 w-3" />
+                        Code
+                      </a>
+                    </Button>
+                  )}
+                  <Button variant="outline" size="sm" className="flex-1 border-border/50 text-foreground/60 hover:text-foreground hover:border-border text-[10px] h-8 rounded-lg">
+                    Live Demo
                   </Button>
-                )}
-                <Button variant="outline" size="sm">
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  Details
-                </Button>
+                </div>
               </div>
             </div>
           ))}

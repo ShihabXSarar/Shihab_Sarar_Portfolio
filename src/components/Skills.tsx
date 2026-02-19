@@ -2,38 +2,39 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
-      skills: ["C", "C++", "C#", "Python", "Java", "JavaScript"],
+      skills: ["Python", "C++", "Java", "JavaScript", "C#", "SQL"],
     },
     {
-      title: "Frontend",
-      skills: ["HTML/CSS", "React", "Tailwind CSS"],
-    },
-    {
-      title: "Backend & Database",
-      skills: ["Node.js", "MySQL", "SQL", "Database Design"],
-    },
-    {
-      title: "Tools & Technologies",
-      skills: ["Git", "VS Code", "PyCharm", "OpenCV"],
+      title: "Frameworks & Tools",
+      skills: ["PyTorch", "TensorFlow", "Scikit-learn", "React", "Node.js", "Docker", "Git"],
     },
     {
       title: "Core Competencies",
       skills: [
+        "Data Structures",
+        "Algorithms",
+        "Deep Learning",
+        "Natural Language Processing",
+        "System Design",
+      ],
+    },
+    {
+      title: "Soft Skills",
+      skills: [
         "Problem Solving",
-        "Algorithm Design",
-        "Machine Learning",
-        "Computer Vision",
-        "Competitive Programming",
-        "Team Leadership",
+        "Team Collaboration",
+        "Technical Communication",
       ],
     },
   ];
 
   return (
-    <section id="skills" className="py-20 px-4">
-      <div className="container mx-auto max-w-6xl">
+    <section id="skills" className="py-20 px-4 circuit-bg relative">
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/3 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="section-heading">
             <span className="text-gradient">Skills</span> & Expertise
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -41,49 +42,23 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="p-6 rounded-xl bg-card border border-border hover:border-primary transition-smooth hover:glow-primary animate-fade-in"
+              className="animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <h3 className="text-xl font-bold mb-4 text-primary">{category.title}</h3>
-              <div className="flex flex-wrap gap-2">
+              <h3 className="text-xs font-bold mb-6 text-foreground/40 uppercase tracking-[0.2em] px-1">{category.title}</h3>
+              <div className="flex flex-wrap gap-2.5">
                 {category.skills.map((skill, skillIndex) => (
-                  <span
-                    key={skillIndex}
-                    className="px-3 py-1.5 rounded-lg bg-primary/10 text-sm font-medium hover:bg-primary/20 transition-smooth"
-                  >
+                  <span key={skillIndex} className="skill-tag text-[11px] font-bold px-3 py-1.5 rounded-lg border-[hsl(196,100%,46%,0.2)] bg-[hsl(196,100%,46%,0.04)] text-foreground/80 hover:border-[hsl(196,100%,46%,0.5)] hover:bg-[hsl(196,100%,46%,0.1)] transition-all">
                     {skill}
                   </span>
                 ))}
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Highlighted achievements */}
-        <div className="mt-12 p-8 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-          <h3 className="text-2xl font-bold mb-6 text-center">Key Highlights</h3>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="flex items-start gap-3">
-              <div className="w-2 h-2 rounded-full bg-primary mt-2" />
-              <p className="text-foreground/80">Participated in ICPC, hackathons, and coding competitions</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="w-2 h-2 rounded-full bg-primary mt-2" />
-              <p className="text-foreground/80">Strong foundation in machine learning and model evaluation</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="w-2 h-2 rounded-full bg-primary mt-2" />
-              <p className="text-foreground/80">Experience with C# framework and application development</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="w-2 h-2 rounded-full bg-primary mt-2" />
-              <p className="text-foreground/80">Proven leadership and teamwork abilities</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
