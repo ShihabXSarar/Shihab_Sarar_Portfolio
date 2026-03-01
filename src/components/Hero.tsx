@@ -97,7 +97,7 @@ const Hero = () => {
         <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-16 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           {[
             { label: "Codeforces:", value: "1341 (Pupil)" },
-            { label: "GPA:", value: "3.54/4.0" },
+            { label: "GPA:", value: "3.55" },
             { label: "Projects:", value: "20+" },
             { label: "Awards:", value: "5+" },
           ].map((stat, i) => (

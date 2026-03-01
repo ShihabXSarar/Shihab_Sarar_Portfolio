@@ -4,33 +4,28 @@ const Skills = () => {
   const skillCategories = [
     {
       icon: Code2,
-      title: "Programming Languages",
-      skills: ["Python", "C++", "Java", "JavaScript", "C#", "SQL"],
-    },
-    {
-      icon: Cpu,
-      title: "Frameworks & Tools",
-      skills: ["PyTorch", "TensorFlow", "Scikit-learn", "React", "Node.js", "Docker", "Git"],
-    },
-    {
-      icon: Layers,
-      title: "Core Competencies",
-      skills: [
-        "Data Structures",
-        "Algorithms",
-        "Deep Learning",
-        "Natural Language Processing",
-        "System Design",
-      ],
+      title: "Languages",
+      skills: ["Python", "C", "C++", "SQL", "C Sharp"],
     },
     {
       icon: Brain,
-      title: "Soft Skills",
-      skills: [
-        "Problem Solving",
-        "Team Collaboration",
-        "Technical Communication",
-      ],
+      title: "AI / ML",
+      skills: ["Machine Learning", "Computer Vision", "Multimodal Learning", "Explainable AI (SHAP, Grad-CAM)"],
+    },
+    {
+      icon: Layers,
+      title: "Libraries / Frameworks",
+      skills: ["OpenCV", "scikit-learn", "TensorFlow"],
+    },
+    {
+      icon: Cpu,
+      title: "Developer Tools",
+      skills: ["VS Code", "Visual Studio", "Kaggle", "PyCharm", "Jupyter Notebook"],
+    },
+    {
+      icon: Code2,
+      title: "Technologies / Frameworks",
+      skills: ["Git", "GitHub"],
     },
   ];
 

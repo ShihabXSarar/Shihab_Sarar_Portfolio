@@ -3,29 +3,29 @@ import { Award, Trophy, Medal, Star } from "lucide-react";
 const Awards = () => {
   const awards = [
     {
-      icon: Trophy,
-      title: "ICPC Asia Dhaka Regionalist 2023",
-      category: "Competitive Programming",
-    },
-    {
       icon: Award,
-      title: "Honorable Mention - Blockchain Olympiad Bangladesh",
+      title: "Blockchain Olympiad Bangladesh 2025 Honorable Mention",
       category: "AI Category",
     },
     {
+      icon: Trophy,
+      title: "ICPC Asia Dhaka Regionalist-2023",
+      category: "Competitive Programming",
+    },
+    {
       icon: Star,
-      title: "Nominated for International Data Science Olympiad",
+      title: "Nominated for International Data Science Olympiad 2025",
       category: "Data Science",
     },
     {
       icon: Trophy,
-      title: "Winner - Intra University Programming Contest Season 2",
-      category: "Presidency University",
+      title: "Winner at the Presidency Intra-University Programming Contest Season-2",
+      category: "Competitive Programming",
     },
     {
       icon: Medal,
-      title: "1st Runner Up - Intra University Programming Contest Season 1",
-      category: "Presidency University",
+      title: "2nd Runners-up of Presidency University AI Contest",
+      category: "AI",
     },
   ];
 

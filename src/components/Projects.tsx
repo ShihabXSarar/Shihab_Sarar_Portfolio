@@ -4,27 +4,21 @@ import shipmentImg from "@/assets/projects/shipment.png";
 import falconImg from "@/assets/projects/falcon.png";
 import movieImg from "@/assets/projects/movie.png";
 import libraryImg from "@/assets/projects/library.png";
+import foodImg from "@/assets/projects/food.png";
 
 const Projects = () => {
   const projects = [
     {
-      title: "Real Time Shipment Tracking Project",
-      description: "Real-time shipment tracking solution supporting USPS and FedEx using Playwright for browser automation and BeautifulSoup for parsing.",
-      tech: ["Python", "Playwright", "Web Scraping"],
-      github: "https://github.com/ShihabXSarar/Real_Time_Shipment_Tracking_Project",
-      image: shipmentImg,
-    },
-    {
-      title: "AI-Based Threat Detection (Falcon AI)",
-      description: "Drone-based autonomous surveillance system using onboard AI for real-time threat detection and classification.",
-      tech: ["Python", "Computer Vision", "Deep Learning"],
+      title: "Falcon AI - Real-Time Border Threat Detection",
+      description: "Built a real-time computer vision system to detect person/fence interactions and infer push-in/push-out events. Implemented YOLOv11 and ByteTrack for object detection and multi-object tracking. Integrated Twilio and WhatsApp APIs for automated alert notifications.",
+      tech: ["Computer Vision", "YOLOv11", "ByteTrack"],
       github: "https://github.com/ShihabXSarar/AI-Based-Threat-Detection-for-Border-Surveillance",
       image: falconImg,
     },
     {
-      title: "Movie Recommendation System",
-      description: "Dynamic recommendation system using collaborative filtering and TMDB API integration for personalized movie suggestions.",
-      tech: ["Python", "Machine Learning", "TMDB API"],
+      title: "Movie-Recommendation-System",
+      description: "Developed a personalized movie recommendation system based on user similarity and viewing history.",
+      tech: ["Machine Learning", "Collaborative Filtering"],
       github: "https://github.com/ShihabXSarar/Movie-Recommendation-System-using-Collaborative-filtering",
       image: movieImg,
     },
@@ -34,6 +28,20 @@ const Projects = () => {
       tech: ["C#", "SQL", ".NET"],
       github: "https://github.com/ShihabXSarar/Library-System-Managment-with-photo-adding-of-students",
       image: libraryImg,
+    },
+    {
+      title: "AI Based Food-Management-Sustainability-Platform",
+      description: "Developed a smart platform to optimize inventory tracking and reduce food waste.",
+      tech: ["AI", "Smart Food Management System"],
+      github: "https://github.com/ShihabXSarar/Food-Management-Sustainability-Platform",
+      image: foodImg, // using as placeholder
+    },
+    {
+      title: "Real Time Shipment Tracking Project",
+      description: "Real-time shipment tracking solution supporting USPS and FedEx using Playwright for browser automation and BeautifulSoup for parsing.",
+      tech: ["Python", "Playwright", "Web Scraping"],
+      github: "https://github.com/ShihabXSarar/Real_Time_Shipment_Tracking_Project",
+      image: shipmentImg,
     },
   ];
 
@@ -52,7 +60,7 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center max-w-5xl mx-auto">
           {projects.map((project, index) => (
             <div
               key={index}
