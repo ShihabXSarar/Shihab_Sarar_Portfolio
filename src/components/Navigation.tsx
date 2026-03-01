@@ -44,54 +44,56 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled || isOpen
-      ? "bg-[hsl(228,50%,8%,0.98)] backdrop-blur-xl border-b border-[hsl(196,100%,46%,0.1)]"
-      : "bg-transparent"
-      }`}>
-      <div className="container mx-auto px-4 relative z-50">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo matching "AP Portfolio" style from design */}
-          <a href="#about" className="flex items-center gap-2 text-xl font-bold group">
-            <span className="text-gradient text-2xl font-extrabold">SS</span>
-            <span className="text-foreground/90 hidden sm:inline">Portfolio</span>
-          </a>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="px-3 py-2 rounded-lg text-sm text-foreground/70 hover:text-[hsl(196,100%,46%)] transition-smooth relative group"
-              >
-                {item.label}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[hsl(196,100%,46%)] group-hover:w-3/4 transition-all duration-300" />
-              </a>
-            ))}
-            <a href="#contact" className="ml-3">
-              <Button
-                size="sm"
-                className="rounded-full px-5 border border-[hsl(196,100%,46%,0.5)] bg-transparent text-[hsl(196,100%,46%)] hover:bg-[hsl(196,100%,46%)] hover:text-[hsl(228,60%,6%)] transition-smooth text-sm font-semibold"
-              >
-                Contact
-              </Button>
+    <>
+      <nav className={`fixed top-0 w-full z-[60] transition-all duration-300 ${scrolled || isOpen
+        ? "bg-[hsl(228,50%,8%,0.98)] backdrop-blur-xl border-b border-[hsl(196,100%,46%,0.1)]"
+        : "bg-transparent"
+        }`}>
+        <div className="container mx-auto px-4 relative z-[60]">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo matching "AP Portfolio" style from design */}
+            <a href="#about" className="flex items-center gap-2 text-xl font-bold group">
+              <span className="text-gradient text-2xl font-extrabold">SS</span>
+              <span className="text-foreground/90 hidden sm:inline">Portfolio</span>
             </a>
-          </div>
 
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-[hsl(196,100%,46%,0.1)] transition-smooth touch-target"
-            aria-label="Toggle navigation menu"
-          >
-            {isOpen ? <X className="h-6 w-6 text-[hsl(196,100%,46%)]" /> : <Menu className="h-6 w-6" />}
-          </button>
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-1">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="px-3 py-2 rounded-lg text-sm text-foreground/70 hover:text-[hsl(196,100%,46%)] transition-smooth relative group"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[hsl(196,100%,46%)] group-hover:w-3/4 transition-all duration-300" />
+                </a>
+              ))}
+              <a href="#contact" className="ml-3">
+                <Button
+                  size="sm"
+                  className="rounded-full px-5 border border-[hsl(196,100%,46%,0.5)] bg-transparent text-[hsl(196,100%,46%)] hover:bg-[hsl(196,100%,46%)] hover:text-[hsl(228,60%,6%)] transition-smooth text-sm font-semibold"
+                >
+                  Contact
+                </Button>
+              </a>
+            </div>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-[hsl(196,100%,46%,0.1)] transition-smooth touch-target"
+              aria-label="Toggle navigation menu"
+            >
+              {isOpen ? <X className="h-6 w-6 text-[hsl(196,100%,46%)]" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
-      </div>
+      </nav>
 
       {/* Mobile Navigation - Professional Full-Screen Solid Overlay */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 w-full h-[100dvh] bg-background z-40 flex flex-col pt-24 px-6 gap-3 overflow-y-auto pb-8">
+        <div className="md:hidden fixed inset-0 w-screen h-[100dvh] bg-[hsl(228,50%,6%)] z-[50] flex flex-col pt-24 px-6 gap-3 overflow-y-auto pb-8 backdrop-blur-3xl">
           <div className="flex-1 flex flex-col gap-2">
             {navItems.map((item) => (
               <a
@@ -113,7 +115,7 @@ const Navigation = () => {
           </div>
         </div>
       )}
-    </nav>
+    </>
   );
 };
 
