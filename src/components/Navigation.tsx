@@ -89,20 +89,22 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation - Now outside container to ensure full screen coverage */}
+      {/* Mobile Navigation - Professional Full-Screen Solid Overlay */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 bg-[hsl(228,50%,6%)] z-40 animate-fade-in flex flex-col pt-24 px-6 gap-2">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={handleNavClick}
-              className="px-6 py-4 rounded-xl text-foreground/90 hover:text-[hsl(196,100%,46%)] hover:bg-[hsl(196,100%,46%,0.08)] transition-smooth text-lg font-semibold border border-transparent hover:border-[hsl(196,100%,46%,0.2)] touch-target"
-            >
-              {item.label}
-            </a>
-          ))}
-          <div className="pt-6 border-t border-[hsl(196,100%,46%,0.1)] mt-4">
+        <div className="md:hidden fixed inset-0 w-full h-[100dvh] bg-background z-40 flex flex-col pt-24 px-6 gap-3 overflow-y-auto pb-8">
+          <div className="flex-1 flex flex-col gap-2">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={handleNavClick}
+                className="px-6 py-4 rounded-xl text-foreground/90 hover:text-[hsl(196,100%,46%)] hover:bg-[hsl(196,100%,46%,0.08)] transition-smooth text-lg font-semibold border border-transparent hover:border-[hsl(196,100%,46%,0.2)] touch-target w-full text-center"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+          <div className="pt-6 border-t border-[hsl(196,100%,46%,0.1)] mt-auto mb-4">
             <a href="#contact" onClick={handleNavClick}>
               <Button className="w-full rounded-full bg-[hsl(196,100%,46%)] text-[hsl(228,60%,6%)] hover:bg-[hsl(196,100%,40%)] transition-smooth font-extrabold py-6 text-base shadow-[0_0_20px_hsl(196,100%,46%,0.3)]">
                 Contact Me
