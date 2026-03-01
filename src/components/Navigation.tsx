@@ -21,11 +21,14 @@ const Navigation = () => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
     return () => {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
   }, [isOpen]);
 
@@ -33,6 +36,7 @@ const Navigation = () => {
     { label: "About", href: "#about" },
     { label: "Experience", href: "#experience" },
     { label: "Education", href: "#education" },
+    { label: "Thesis", href: "#thesis" },
     { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#projects" },
     { label: "Awards", href: "#awards" },
@@ -40,11 +44,11 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-smooth ${scrolled
-        ? "bg-[hsl(228,50%,8%)] backdrop-blur-xl border-b border-[hsl(196,100%,46%,0.1)]"
-        : "bg-transparent"
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled || isOpen
+      ? "bg-[hsl(228,50%,8%,0.98)] backdrop-blur-xl border-b border-[hsl(196,100%,46%,0.1)]"
+      : "bg-transparent"
       }`}>
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative z-50">
         <div className="flex items-center justify-between h-16">
           {/* Logo matching "AP Portfolio" style from design */}
           <a href="#about" className="flex items-center gap-2 text-xl font-bold group">
@@ -77,38 +81,36 @@ const Navigation = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-card transition-smooth touch-target"
+            className="md:hidden p-2 rounded-lg hover:bg-[hsl(196,100%,46%,0.1)] transition-smooth touch-target"
             aria-label="Toggle navigation menu"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-6 w-6 text-[hsl(196,100%,46%)]" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden fixed inset-0 top-16 bg-[hsl(228,50%,6%,0.98)] backdrop-blur-xl animate-fade-in z-40">
-            <div className="flex flex-col p-6 gap-2">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={handleNavClick}
-                  className="px-4 py-3.5 rounded-lg text-foreground/80 hover:text-[hsl(196,100%,46%)] hover:bg-[hsl(228,45%,12%)] transition-smooth text-base font-medium touch-target"
-                >
-                  {item.label}
-                </a>
-              ))}
-              <div className="pt-4 border-t border-[hsl(196,100%,46%,0.1)] mt-2">
-                <a href="#contact" onClick={handleNavClick}>
-                  <Button className="w-full rounded-full border border-[hsl(196,100%,46%,0.5)] bg-transparent text-[hsl(196,100%,46%)] hover:bg-[hsl(196,100%,46%)] hover:text-[hsl(228,60%,6%)] transition-smooth font-semibold py-3">
-                    Contact
-                  </Button>
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Mobile Navigation - Now outside container to ensure full screen coverage */}
+      {isOpen && (
+        <div className="md:hidden fixed inset-0 bg-[hsl(228,50%,6%)] z-40 animate-fade-in flex flex-col pt-24 px-6 gap-2">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={handleNavClick}
+              className="px-6 py-4 rounded-xl text-foreground/90 hover:text-[hsl(196,100%,46%)] hover:bg-[hsl(196,100%,46%,0.08)] transition-smooth text-lg font-semibold border border-transparent hover:border-[hsl(196,100%,46%,0.2)] touch-target"
+            >
+              {item.label}
+            </a>
+          ))}
+          <div className="pt-6 border-t border-[hsl(196,100%,46%,0.1)] mt-4">
+            <a href="#contact" onClick={handleNavClick}>
+              <Button className="w-full rounded-full bg-[hsl(196,100%,46%)] text-[hsl(228,60%,6%)] hover:bg-[hsl(196,100%,40%)] transition-smooth font-extrabold py-6 text-base shadow-[0_0_20px_hsl(196,100%,46%,0.3)]">
+                Contact Me
+              </Button>
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

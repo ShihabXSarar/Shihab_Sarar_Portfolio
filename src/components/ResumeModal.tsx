@@ -9,9 +9,9 @@ interface ResumeModalProps {
 const ResumeModal = ({ isOpen, onClose }: ResumeModalProps) => {
     if (!isOpen) return null;
 
-    const resumeUrl = "https://drive.google.com/file/d/17miD_0ucVKyNsNBpMAbIWG35gcS0Puli/preview";
-    const downloadUrl = "https://drive.google.com/uc?export=download&id=17miD_0ucVKyNsNBpMAbIWG35gcS0Puli";
-    const viewUrl = "https://drive.google.com/file/d/17miD_0ucVKyNsNBpMAbIWG35gcS0Puli/view?usp=sharing";
+    const resumeUrl = "https://drive.google.com/file/d/1OKiGY2VqMk4RCGNh1f3jUb4s-hXaE6d-/preview";
+    const downloadUrl = "https://drive.google.com/uc?export=download&id=1OKiGY2VqMk4RCGNh1f3jUb4s-hXaE6d-";
+    const viewUrl = "https://drive.google.com/file/d/1OKiGY2VqMk4RCGNh1f3jUb4s-hXaE6d-/view?usp=sharing";
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/85 backdrop-blur-sm animate-fade-in">

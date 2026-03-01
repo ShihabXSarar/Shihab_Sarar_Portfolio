@@ -6,24 +6,24 @@ const Education = () => {
       institution: "Presidency University Bangladesh",
       degree: "Bachelor of Science",
       field: "Computer Science and Engineering",
-      grade: "GPA: 3.54/4.0",
-      period: "2021 - 2025",
-      highlights: ["Data Structures", "Algorithms", "Machine Learning", "Computer Vision"],
+      grade: "CGPA: 3.55",
+      period: "01 2022 - 12 2025",
+      highlights: ["Data Structures & Algorithms", "Operating Systems", "Database Management System (DBMS)", "OOPS Concept", "Network Security", "Machine Learning"],
     },
   ];
 
   const certifications = [
     {
-      title: "Google Cloud Professional Data Engineer",
-      provider: "Google Cloud",
+      title: "ICPC Asia Dhaka Regionalist",
+      provider: "ACM ICPC",
     },
     {
-      title: "AWS Certified Solutions Architect - Associate",
-      provider: "Amazon Web Services",
+      title: "Blockchain Olympiad Bangladesh - Honorable Mention",
+      provider: "International Data Science Olympiad",
     },
     {
-      title: "Deep Learning Specialization",
-      provider: "Coursera",
+      title: "Understanding Machine Learning",
+      provider: "DataCamp",
     },
   ];
 
