@@ -1,198 +1,137 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  font-family: "Geist", sans-serif;
 
-@layer base {
-  :root {
-    /* Deep dark navy background matching the Stitch design */
-    --background: 228 60% 6%;
-    --foreground: 210 40% 98%;
+  font-optical-sizing: auto;
+  font-style: normal;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  color-scheme: light dark;
+  color: #eae5ec;
+  background-color: var(--backgroundColor);
 
-    /* Card: slightly lighter navy with visible separation */
-    --card: 228 45% 10%;
-    --card-foreground: 210 40% 98%;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  --accentColor: #5eead4;
+  --backgroundColor: #0a0e17;
+  --vh: 100vh;
+  --vh: 100svh;
+}
 
-    --popover: 228 45% 8%;
-    --popover-foreground: 210 40% 98%;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Geist", sans-serif;
+}
 
-    /* Bright neon cyan - the core accent from the design */
-    --primary: 196 100% 46%;
-    --primary-foreground: 228 60% 6%;
+body {
+  overflow: hidden;
+}
 
-    --secondary: 228 35% 15%;
-    --secondary-foreground: 210 40% 98%;
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
 
-    --muted: 228 35% 13%;
-    --muted-foreground: 215 20% 55%;
+a:hover {
+  color: var(--accentColor);
+}
 
-    /* Purple/violet secondary accent */
-    --accent: 262 83% 58%;
-    --accent-foreground: 210 40% 98%;
+main {
+  opacity: 1;
+  transition: 0.3s;
+}
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+.main-active {
+  opacity: 0;
+  animation: fadeIn 1s 1;
+  animation-fill-mode: forwards;
+}
 
-    /* Borders visible with cyan tint */
-    --border: 228 30% 18%;
-    --input: 228 35% 13%;
-    --ring: 196 100% 46%;
-
-    --radius: 0.75rem;
-
-    /* Gradients matching the neon cyan → purple */
-    --gradient-primary: linear-gradient(135deg, hsl(196 100% 46%) 0%, hsl(262 83% 58%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(228 45% 10%) 0%, hsl(228 35% 15%) 100%);
-    --glow-primary: 0 0 25px hsl(196 100% 46% / 0.4), 0 0 50px hsl(196 100% 46% / 0.15);
-    --glow-accent: 0 0 30px hsl(262 83% 58% / 0.3);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+body {
+  margin: 0;
+  height: auto;
+  background-color: #050810;
+  flex-grow: 1;
+  --cWidth: calc(100% - 30px);
+  --cMaxWidth: 1920px;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 
+.main-body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.container-main {
+  width: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.container1 {
+  width: var(--cWidth);
+  height: var(--vh);
+  margin: auto;
+  position: relative;
+}
+
+.split-line {
+  overflow: hidden;
+}
+
+.split-h2 {
+  overflow: hidden;
+  display: flex;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.techstack {
+  width: 100%;
+  position: relative;
+  overflow: clip;
+  height: var(--vh);
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: -100px;
+}
+
+.techstack h2 {
+  font-size: 80px;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 120px;
+  left: 0;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-  }
-
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: hsl(var(--background));
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary) / 0.5);
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary) / 0.8);
+    --cWidth: 94%;
   }
 }
 
-@layer utilities {
-  .text-gradient {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .glow-primary {
-    box-shadow: var(--glow-primary);
-  }
-
-  .glow-accent {
-    box-shadow: var(--glow-accent);
-  }
-
-  .transition-smooth {
-    transition: var(--transition-smooth);
-  }
-
-  /* Tech border with visible cyan glow edge - matching the design's card borders */
-  .tech-border {
-    border: 1px solid hsl(196 100% 46% / 0.25);
-    position: relative;
-  }
-
-  .tech-border::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, hsl(196 100% 46% / 0.15), transparent 40%, transparent 60%, hsl(262 83% 58% / 0.15));
-    z-index: -1;
-    pointer-events: none;
-  }
-
-  /* Cards matching the design: dark navy bg with visible glowing cyan borders */
-  .tech-card {
-    background: linear-gradient(160deg,
-        hsl(228 45% 11%) 0%,
-        hsl(228 50% 8%) 100%);
-    border: 1px solid hsl(196 100% 46% / 0.18);
-    transition: var(--transition-smooth);
-    box-shadow: 0 0 0 0 transparent;
-  }
-
-  .tech-card:hover {
-    border-color: hsl(196 100% 46% / 0.45);
-    box-shadow:
-      0 0 15px hsl(196 100% 46% / 0.08),
-      0 0 30px hsl(196 100% 46% / 0.04),
-      inset 0 1px 0 hsl(196 100% 46% / 0.08);
-  }
-
-  /* Circuit board dot pattern - subtle tech background like the design */
-  .circuit-bg {
-    background-image:
-      radial-gradient(circle at 25% 25%, hsl(196 100% 46% / 0.04) 1px, transparent 1px),
-      radial-gradient(circle at 75% 75%, hsl(262 83% 58% / 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-
-  .section-heading {
-    @apply text-4xl md:text-5xl font-bold mb-4;
-  }
-
-  /* Skill tags matching the design: bordered pills with cyan text */
-  .skill-tag {
-    @apply px-3 py-1.5 rounded-md text-sm font-medium border transition-smooth;
-    background: hsl(196 100% 46% / 0.06);
-    border-color: hsl(196 100% 46% / 0.25);
-    color: hsl(196 100% 46%);
-  }
-
-  .skill-tag:hover {
-    background: hsl(196 100% 46% / 0.14);
-    border-color: hsl(196 100% 46% / 0.5);
-  }
-
-  /* Stat badges matching the design: outlined pills with data */
-  .stat-badge {
-    @apply px-4 py-2 rounded-lg text-sm font-semibold border;
-    background: hsl(196 100% 46% / 0.04);
-    border-color: hsl(196 100% 46% / 0.3);
-  }
-
-  /* Profile image glow matching the design's neon-style image frame */
-  .profile-glow {
-    box-shadow:
-      0 0 30px hsl(196 100% 46% / 0.35),
-      0 0 60px hsl(196 100% 46% / 0.15),
-      0 0 100px hsl(262 83% 58% / 0.08);
-  }
-
-  /* Mobile touch targets */
-  @media (pointer: coarse) {
-    .touch-target {
-      min-height: 44px;
-      min-width: 44px;
-    }
-  }
-}
-
-/* Mobile viewport fix for iOS Safari */
-@supports (-webkit-touch-callout: none) {
-  .min-h-screen {
-    min-height: -webkit-fill-available;
+@media screen and (max-width: 900px) {
+  .techstack h2 {
+    font-size: 40px;
   }
 }
